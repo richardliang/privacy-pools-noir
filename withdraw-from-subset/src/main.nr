@@ -30,6 +30,7 @@ fn commitment_nullifier_hasher(
     path : Field,
     asset_metadata : Field
 ) -> [Field; 2] {
+    // TODO: ameen uses poseidon to hash but noir does not support it yet
     let secret_hash = std::hash::pedersen([secret]);
 
     let commitment = std::hash::pedersen([secret_hash[0], asset_metadata]);
